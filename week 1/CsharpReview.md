@@ -1,0 +1,33 @@
+# CSharp Review Notes
+## DataTypes/Types in C#
+- All the datatypes in C# are derived from System.Object.
+- Namespace->Types->Types members
+- Types - class, struct, interfaces, delegates, enum.
+    1. **Value Types** - where the value is directly stored in the stack memory location.
+        Ex - int, char, bool, decimal, float, struct and enums
+    2. **Reference Types** - The values are stored in the heap memory location memory stack maintains its references. Ex String, Array, class, interfaces, delegates, Object.
+- **Boxing**- refers to conversion Value type to reference types.
+- **Unboxing**- refers to conversion of reference types to value types.
+
+## Object Oriented Paradigm
+- class, instances.
+- Pillars of OOP
+    - APIE
+    - **Encapsulation** - wrapping up of the data (properties, methods, classes, namespace) and data hiding by using access modifiers (private, protected, internal and public).
+    - **Abstraction** - Showing only essential features of an object/type.
+        - How to achive abstraction in C# - abstract classes and Interfaces
+        - **Abstract classes** - you can have partial or no implementation of the classes. It should be inherited by the child class and the child class must implement the abstract members. Classes only allow inheritance with one and only one class. 
+            - Abstract class can have variables, fields, methods etc just like any concrete class.
+            - You can have *virtual* (method can have body) or *abstract methods* (methods with no body) when you create a abstract class.
+        - **Interfaces** - They are the contract which must be implemented by the classes. They achieve 100% abstraction as all the members of an interfaces are implicitly public and abstract. You cannot have variables in your interfaces.
+            - Interfaces can have only 4 members - methods, properties, delegates, indexers.
+    - **Polymorphism** - *Poly means many* and *morph means forms*.
+        - Upcasting and downcasting.
+        - **Method overloading** - compile time or static polymorphism. A method will show different behaviours based on the arguements/signatures. 
+            - the signature can vary based on :
+                - number of parameters,
+                - datatype/type of parameters,
+                - sequence of parameter
+        - **Method Overriding** - Runtime or dynamic polymorphism. Its a way to re-define the method (with same return type, name and signature) of parent/super class into the child class. 
+    - **Inheritance** - Its an act of re-usabilty. C# supports multi-level (A->B->C) and single inheritance only that means no multiple inheritance. 
+
