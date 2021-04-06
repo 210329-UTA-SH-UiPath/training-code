@@ -1,0 +1,158 @@
+UiPath Batch -> Robotic Process Automation
+
+Week 1-4 -> .Net
+	- C#
+	- SQL
+	- Asp.Net (MVC, SOAP and RESTful)
+	- Front tech (HTML, CSS, JS, VB)
+Week 5-8 -> UiPath
+	- UiPath Foundation -> Studio
+	- Uipath Advanced -> ReFramework and Orchectrator
+	- UiPath New features and advanced training -> Hyperautomation and ELK
+week 9-10 -> P3, Portfolios, Client intyerviews and Showcase
+
+Training Operations
+Evaluations: Quizzes, 1 on 1s, QC, panels
+Project: P0, P1, P2, P3
+
+timings - 9:00-17:00 EST
+break 1 - 10:30 - 15 mins
+Lunch   - 12:30-13:30
+break 2 - 15:00 
+
+--------------------------------------------------------------------------------------------------------
+.net => Platform => to create apps (CUI, GUI, microservices, cloud services, IOT, game development, ML)
+
+2002 -> .net Framework 1.0
+
+
+2020 ->    .Net
+	     l
+Framework   Core(2016)       Xamarin      Mono              
+(Windows)   (platform        Phone app    (MacOS)
+		independant)		
+
+
+Components of .Net Core SDK 
+- dotnet Command Line Interface
+- dotnet libraries (standard libraries)
+- runtime/Common Language Runtime
+- Languages - C#, F#, VB
+	Common Type System
+	Common Language Specification
+
+
+Assembly vs Namespace
+Namespace-> logically arrange the types (classes) to avoid naming conflict
+Assembly-> Physical separation of types (classes) -> exe or dll
+	-> Deployable units
+
+
+C#	CTS	       VB           xyz
+int   System.Int32    integer       doo
+short Sytem.Int16     foo           zoo
+
+C#-> TypeSafe language, Case Sensitive
+
+Layered Architecture of .net project - separation of concerns
+HerosApp -> Solution  {mkdir <sln name>, dotnet new sln}=> make sure you have the sln directory ready
+  - UI -> Console {dotnet new console -o <project name>}, {dotnet sln <name of the solution> add <reference to the console project>>}
+  - BL -> Class Library
+  - DL -> Class Library
+  - Test -> xUnit
+
+Steps on .Net CLI 
+Project Organisation
+1. Create a folder for solution file
+<mkdir HerosApp>
+2. Navigate to solution folder
+<cd ./HerosApp/>
+3. Create a solution
+<dotnet new sln>
+4. Create a new console app
+<dotnet new console -lang C# -o HerosUI>
+5.Add the reference to the solution
+<dotnet sln HerosApp.sln add HerosUI/HerosUI.csproj>
+6. Repeat steps for the rest of the projects
+dotnet new classLib -lang C# -o HerosLib
+dotnet sln HerosApp.sln add HerosLi/HerosLib.csproj
+dotnet new classLib -lang C# -o HerosDB
+dotnet sln HerosApp.sln add HerosDB/HerosDB.csproj
+dotnet new xUnit -o HerosTest
+dotnet sln HerosApp.sln add HerosTest/HerosTest.csproj
+
+C#
+Namespace
+    Types
+        Members (Methods, variables, properties)
+
+Types (Classes, Enums, Structs, Interface, Delegates)
+    - All types in  C# are inherited directly or indirectly Sytem.Object
+    - Value Types - which has the direct value, stored in memory Stack, fast to access.
+        Structs, Enums. Predefined (int, long, short, byte, DateTime, char)
+    - Reference Types - it stores the reference to that value, value is stored in heap, expensive retrieval process.
+        Classes, interface, Delegates. Predefined -> string, arrays, collections etc
+
+Access Modifiers: they change the behavior and scope of the types or types members.
+    - Scopes Modifiers : Private, public, internal, protected, protected internal and private protected
+        - Using Scope modifiers encapsulation is achieved
+    - Extended Modifiers : abstract, virtual, sealed, static, partial, const, readonly, out, ref, async and await
+
+Properties: like getters and setters in java. Microsoft calls them as smart fields to encapsulate the value of private variables.
+
+Collections: In memory Storage of data
+    - Arrays: 1-D, 2-D, jagged arrays and multi-dimensional
+        - drawbacks -> size of the array
+        - memory inefficient 
+    - Generics: Stack<T>, Queues<T>, List<T>, Dictionery<TKey, TValue>
+        - Type-safe classes 
+        - Memory efficient - as they grow when items added and shrink when items removed
+
+Delegates: type-safe functions pointers in C#.
+    - Late Bindings
+    - Method Chaining - creating pipeline and lifecycle of a framework
+    - Anonymous Methods- they are also foundation of Lambda exp.
+    - Events - publisher and subscriber model/pattern
+    - Loose coupling
+Types 
+    - Single-Cast
+    - Multi-Cast
+    - Strongly-Typed Delegates
+
+Delegate Demo 1-
+    HerosLib    
+        IHeroSuperPowers
+            GetPowers()
+        IHeroOperations
+            DoWork()
+            ManageLife()
+        HeroTask:IHeroOperations,IHeroSuperPowers
+    HerosUI
+        Make call to operations using delegate
+
+
+Events Demo
+HeroTask.cs 
+    Event -> Publisher
+Email services  -> subscriber 1
+Social media services -> subscriber 2
+Text message Service -> subscriber 3
+=======
+Passing by reference
+int param;
+call method(param);
+
+method(out int param)
+
+for ref parameters
+int param = 0;
+call method(param);
+
+method(ref int param);
+
+---------------------------------
+C# Object                   XML                       JSON
+class Person{              <Person>                   {
+    int id = 1;                 <id>1</id>              "id":1,
+    string name="Fred";         <name>Fred</name>       "name":"Fred"
+}                           </Person>                 }
