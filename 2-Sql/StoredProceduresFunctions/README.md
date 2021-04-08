@@ -1,16 +1,16 @@
 # Stored Procedures and Functions in SQL
 # Stored Procedures
-## What is store procedures?
-  + Pre-compiled objects that is saved to execute anywhere.
+## What are store procedures?
+  + Pre-compiled objects that are saved and able to be executed anywhere.
   + Allow us to store repeated queries for reuse.
     ## Advantages
       ### Performance
           + Compiled once stored in executable form.
             + Allows for quick and efficient procedure calls
           + Exe. is automatically cached 
-            + Lowers memory requirements and increases application speed
+            + Increases application speed
       ### Productivity and Ease
-          + Logic can be handle in store procedures
+          + Logic can be handled in stored procedures
           + Called by programmatic interfaces 
       ### Security Controls
           + Can grant user permission to execute a store procedure, independently
@@ -23,9 +23,22 @@
           + Can call functions
       ### 
     ## Example
-        CREATE PROCEDURE myProcedure AS PRINT 'This is my store procedure:)'
+      + NOTE: Requires CREATE PROCEDURE permission in the DB and ALTER permission on the schema you are creating it in 
+    
+      + Can be made in 2 different ways
+        + Query
+
+                CREATE PROCEDURE myProcedure AS PRINT 'This is my store procedure:)'
+        ![plot](./IMG/CreateStoredProcedure.png)
+
+        
+        + SSMS
+            + Databases -> Database -> Programmability
+            + Right click Stored Procedures -> New Stored Procedure
+            + Control + Shift + M will allow you to setup parameters
     ## Execute store procedure
         exec myProcedure
+    ![plot](./IMG/ExecuteStoredProcedure.png)
 
 
 # Functions
@@ -36,7 +49,7 @@
 
     ### Built-in functions
         + Cannot be modified
-        + Can be referenced only in  Transact-SQL statements
+        + Can be referenced only in Transact-SQL statements
     ### User-defined functions
         + Use *CREATE FUNCTION* to generate a function
         + Can take 0+ parameters
@@ -65,6 +78,11 @@
         **Usage**
         SELECT * FROM database_object.fxn_example(20)
 
+    ![plot](./IMG/CreateTableReturnFunction.png)
+    ![plot](./IMG/ExecuteTableReturnFunction.png)
+
+
+
     ### Returns a SCALAR
         CREATE FUNCTION number_people_over_equal(
           @age INT
@@ -79,6 +97,8 @@
           
           RETURN(@returnvalue)
         END;
+    ![plot](./IMG/CreateScalarReturnFunction.png)
+    ![plot](./IMG/ExecuteScalarReturnFunction.png)
 
 
 
@@ -98,7 +118,7 @@
 
 # Error handling
   + Control over Transact - SQL code
-  + Translate message into more readible and understandable text
+  + Translate message into more readable and understandable text
     + Makes logging easy to track
 
     ## Two types
@@ -156,6 +176,8 @@
             ERROR_LINE() AS ErrorLine,
             ERROR_MESSAGE() AS ErrorMessage;
         END CATCH;
+      ![plot](./IMG/SystemException.png)
+
       ### User Exception
         BEGIN TRY
             THROW 1000, 'Encountered an exception', 2
@@ -166,3 +188,4 @@
                 ERROR_MESSAGE() AS ErrorMessage,
                 ERROR_STATE() AS ErrorState;
         END CATCH
+      ![plot](./IMG/UserException.png)
