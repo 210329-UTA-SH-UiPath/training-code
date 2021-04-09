@@ -8,15 +8,15 @@ namespace HeroesData
     public class Repository : IRepository
     {
         private readonly Enities.HeroesDbContext context;
-        private readonly IMapper mapper;
-        public Repository(Enities.HeroesDbContext context, IMapper mapper)
+        IMapper mapper=new Mapper();
+        public Repository(Enities.HeroesDbContext context)
         {
             this.context=context;
-            this.mapper=mapper;
         }
         public void Add(SuperHero superHero)
         {
-            throw new System.NotImplementedException();
+            context.Add(mapper.Map(superHero));
+            context.SaveChanges();
         }
 
         public List<SuperHero> GetAllSuperHeros()
@@ -27,7 +27,8 @@ namespace HeroesData
 
         public SuperHero GetSuperHeroByName(string name)
         {
-            throw new System.NotImplementedException();
+            var superHero=context.SuperHeroes.Where(x=>x.Alias==name).FirstOrDefault();
+            return mapper.Map(superHero);
         }
     }
 }
