@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace HeroesData.Enities
+namespace HeroesData.Entities
 {
     public partial class HeroesDbContext : DbContext
     {
@@ -18,16 +18,7 @@ namespace HeroesData.Enities
         }
 
         public virtual DbSet<SuperHero> SuperHeroes { get; set; }
-
-//         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//         {
-//             if (!optionsBuilder.IsConfigured)
-//             {
-// // use connection logic here
-//                 optionsBuilder
-//                 .UseSqlServer("Server=tcp:heroesapp.database.windows.net,1433;Initial Catalog=HeroesDb;Persist Security Info=False;User ID=dev;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-//             }
-//         }
+        public virtual DbSet<SuperPower> SuperPowers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,6 +44,28 @@ namespace HeroesData.Enities
                 entity.Property(e => e.RealName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SuperPower>(entity =>
+            {
+                entity.ToTable("SuperPower");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.SuperHeroId)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("superHeroId");
+
+                entity.HasOne(d => d.SuperHero)
+                    .WithMany(p => p.SuperPowers)
+                    .HasForeignKey(d => d.SuperHeroId)
+                    .HasConstraintName("FK_SuperPower_SuperHero");
             });
 
             OnModelCreatingPartial(modelBuilder);

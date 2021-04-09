@@ -7,9 +7,9 @@ namespace HeroesData
 {
     public class Repository : IRepository
     {
-        private readonly Enities.HeroesDbContext context;
+        private readonly Entities.HeroesDbContext context;
         IMapper mapper=new Mapper();
-        public Repository(Enities.HeroesDbContext context)
+        public Repository(Entities.HeroesDbContext context)
         {
             this.context=context;
         }

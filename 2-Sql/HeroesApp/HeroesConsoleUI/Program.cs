@@ -9,11 +9,9 @@ namespace HeroesConsoleUI
     {
         static void Main(string[] args)
         {
-            IRepository repository=Dependencies.CreateRepository();
-         
+            IRepository repository=Dependencies.CreateRepository();         
             Console.WriteLine("Fetching Super Hero");
-            RunUI(repository);
-          
+            RunUI(repository);          
         }
        public static void RunUI(IRepository repository){
            /*var SuperHeroes = repository.GetAllSuperHeros();
