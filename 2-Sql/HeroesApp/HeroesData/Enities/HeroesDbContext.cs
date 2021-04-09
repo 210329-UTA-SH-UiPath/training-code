@@ -24,6 +24,8 @@ namespace HeroesData.Enities
             if (!optionsBuilder.IsConfigured)
             {
 // use connection logic here
+                optionsBuilder
+                .UseSqlServer("Server=tcp:heroesapp.database.windows.net,1433;Initial Catalog=HeroesDb;Persist Security Info=False;User ID=dev;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

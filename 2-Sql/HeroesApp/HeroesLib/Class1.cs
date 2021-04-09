@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HeroesData
+namespace HeroesLib
 {
     public class Class1
     {
