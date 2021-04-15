@@ -1,0 +1,22 @@
+Function Determinism
+	deterministic - always return the same result for a given set of inputs
+	e.g.: AVG, COUNT, OPENDATASOURCE
+	nondeterministic - may not even when the database state hasn't changed
+	e.g.: configuration, cursor, metadata, security, and system statistical 
+
+Aggregate (deteministic)
+	takes a set of values and returns a single value
+	e.g.: AVG, COUNT, MIN, MAX, SUM
+Analytic (may be either)
+	takes a set of values and returns a set of values
+	e.g.: PERCENT_RANK, RUNNING_TOTAL(user defined)
+Ranking (nondeterministic)
+	returns a rank value for each row in a partition 
+	multiple rows may have the same rank
+	e.g.: RANK, ROW_NUMBER
+Rowset (deterministic)
+	returns an object that can be used like a table.
+	e.g.: OPENDATASOURCE
+Scalar (may be either)
+	takes a single value and returns a single value.
+	e.g.: @@LANGUAGE, @@SERVERNAME, ABS, ROUND
