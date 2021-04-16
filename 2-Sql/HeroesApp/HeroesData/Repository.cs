@@ -7,13 +7,6 @@ namespace HeroesData
 {
   public class Repository : IRepository
   {
-    private readonly Enities.HeroesDbContext context;
-    IMapper mapper = new Mapper();
-    public Repository(Enities.HeroesDbContext context)
-    {
-
-      this.context = context;
-
         private readonly Entities.HeroesDbContext context;
         IMapper mapper=new Mapper();
         public Repository(Entities.HeroesDbContext context)
@@ -38,13 +31,6 @@ namespace HeroesData
             return mapper.Map(superHero);
         }
 
-    }
-    public void Add(SuperHero superHero)
-    {
-      context.Add(mapper.Map(superHero));
-      context.SaveChanges();
-    }
-
     public void Delete(SuperHero superHero)
     {
 
@@ -57,17 +43,6 @@ namespace HeroesData
 
     }
 
-    public List<SuperHero> GetAllSuperHeros()
-    {
-      var superHeroes = context.SuperHeroes;
-      return superHeroes.Select(mapper.Map).ToList();
-    }
-
-    public SuperHero GetSuperHeroByName(string name)
-    {
-      var superHero = context.SuperHeroes.Where(x => x.Alias == name).FirstOrDefault();
-      return mapper.Map(superHero);
-    }
 
     public SuperHero Update(SuperHero superHeroChanges)
     {
