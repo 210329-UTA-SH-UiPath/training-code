@@ -1,4 +1,4 @@
-## Normalization
+## [Normalization](https://www.guru99.com/database-normalization.html)
 - Normalization is a database technique that reduces/eliminates 
     - Data redundancy
     - Insert, Update, Delete anamolies.
