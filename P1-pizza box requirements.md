@@ -67,6 +67,7 @@ The project should support objects of Customer, Store, Order, Pizza.
 + expect _mvp status_ for the project:
   - able to order at least 1 pizza (custom or preset)
   - able to save order in DB-system
+  - The DB should have achieved normalization upto 3NF.
   - able to retrieve order and display to UI
   - able to have unit test implementation (try at least 10)
   - __implement of as many requirements as you can for Customer, Store, Pizza, Order__
