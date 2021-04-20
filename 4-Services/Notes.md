@@ -1,5 +1,5 @@
 ## SOA - Service Oriented Architecture
-- Architectural Approach in which appliactions make use of services available in the network. Two components of services are
+- Architectural Approach in which applications make use of services available in the network. Two components of services are
     - Service Provider
     - Service Consumer
     - ![Image of Service](https://github.com/201019-UiPath/training-code/blob/main/images/Service.png)
