@@ -13,31 +13,44 @@
     - Discoverablity
     - Composablity: Using services as building blocks, sophisticated and complex operations.
     - ![Image for SOA](https://github.com/201019-UiPath/training-code/blob/main/images/SOA.png)
-- Advantages of SOA: Service Resuablity, Easy maintainance, Platform independance, Availibilty, reliability, Scalibilty
+- Advantages of SOA: Service Resuablity, Easy maintainance, Platform independance, Availibilty, reliability, Scalability
 - Disadvantages of SOA: load balancing, High costs and investments involved, High Overload could also because of network latency
-- SOA can be impleneted in 2 ways:
-    - SOAP Service-> a web service which uses XML format when it comes to exchanging of messages over various protocols (Http(s), TCP, MSMQ, named Pipes).
-    - In .Net Framework use [WCF](https://www.tutorialspoint.com/wcf/wcf_architecture.htm) (Windows Communication Foundation)
-        - Communication between consumer and provider happens on SOAP Packet (XML data)
-        - WCF Contracts:
-            - Service Contract
-                - Operation Contract
-            - Data Contract
-                - Data Memeber
-            - Fault Contract
-        - Consume a [SOAP Service](https://www.c-sharpcorner.com/article/calling-web-service-using-soap-request/) 
-    - RESTFul Service-> Asp.Net core web API
+- SOA can be implemented in 2 ways:
+    - [SOAP Service]()-> a web service which uses XML format when it comes to exchanging of messages over various protocols (Http(s), TCP, MSMQ, named Pipes).
+        - In .Net Framework use [WCF](https://www.tutorialspoint.com/wcf/wcf_architecture.htm) (Windows Communication Foundation) or [Asp.Net web Service](https://www.javatpoint.com/web-services-in-c-sharp)(old version of SOAP in .Net, before WCF came)
+            - Communication between consumer and provider happens on SOAP Packet (XML data)
+            - WCF Contracts:
+                - Service Contract
+                    - Operation Contract
+                - Data Contract
+                    - Data Member
+                - Fault Contract
+            - Consume a [SOAP Service](https://www.c-sharpcorner.com/article/calling-web-service-using-soap-request/) 
+    - [RESTFul Service](https://restfulapi.net/rest-architectural-constraints/)
+        - [REST Principles/Constraints](https://restfulapi.net/)
+        - REST only uses Http(s).
+        - Messaging can use *xml/json* and other formats are also supported.
+        - REST Api's are more reachable and this is why we more clients/consumers for REST service over SOAP Service.
+        - In .Net REST Api can be implemented using **Asp.Net core web API**
+### Messages in Services
+|    C#                      |         xml                                   |    json                         |
+|----------------------------|-----------------------------------------------|---------------------------------|
+|   `class Person{ `             |  `<person>`                                     |  `"person":{ `                    |
+|        `int id=1; `          |       `<id>1</id> `                             |          `"id":1,`|
+|        `string name="Bob";`  |       `<name>"Bob"</name>`                      |          `"name":"Bob"`|
+|    `} `                      |  `</person>`                                    |         `}`|
+
 - **Why industries prefer REST over SOAP service**
-    - Light weight messaging using Json.
+    - Light weight messaging using **Json**.
     - Easy setup and extend for REST over SOAP service.
-    - Statelessness of RESTful service is helpful in scalability
-    - Reachability because of HTTP as we have more devices supporting HTTP.
+    - Statelessness of RESTful service is helpful in scalability.
+    - Reachability of clients because of HTTP as we have more devices supporting HTTP.
 
 ## ASP.Net Core Web API 
 - [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): Whenever client request for a format of data using *Accept* header, this is called content Negotiation.
 - By Default Asp.Net core offers Json data unless configured.
 - Some browsers also have default accept header like edge and IE requests for JSON.
-- Or use Formatter ciustom or default
+- Or use Formatter custom or default
 
 
 ## How can you consume an Asp.Net Web API
