@@ -26,12 +26,15 @@
                     - Data Member
                 - Fault Contract
             - Consume a [SOAP Service](https://www.c-sharpcorner.com/article/calling-web-service-using-soap-request/) 
+            - To test a SOAP Service you can use [SOAP Ui](https://www.soapui.org/)
+            
     - [RESTFul Service](https://restfulapi.net/rest-architectural-constraints/)
         - [REST Principles/Constraints](https://restfulapi.net/)
         - REST only uses Http(s).
         - Messaging can use *xml/json* and other formats are also supported.
         - REST Api's are more reachable and this is why we more clients/consumers for REST service over SOAP Service.
         - In .Net REST Api can be implemented using **Asp.Net core web API**
+        - To test the Web Api we can use [Postman](https://www.postman.com/downloads/) or [Fiddler](https://www.telerik.com/fiddler)
 ### Messages in Services
 |    C#                      |         xml                                   |    json                         |
 |----------------------------|-----------------------------------------------|---------------------------------|
