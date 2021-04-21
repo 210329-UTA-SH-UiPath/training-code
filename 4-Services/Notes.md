@@ -56,7 +56,10 @@
 - Create Entities and the DbContext class. Entities and DbContext class can be create in 2 ways:
     1. Data Annotations - used for validations as well adding constraints to Db schema.
     2. Fluent API - used for validations as well adding constraints to Db schema.
-
+### Relationships
+- 1-1 - one to one
+- 1-* - one to many
+- *-* - many to many (EFCore 5.x+ create a bridge/junction table in DB)
 ## ASP.Net Core Web API 
 - [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): Whenever client request for a format of data using *Accept* header, this is called content Negotiation.
 - By Default Asp.Net core offers Json data unless configured.

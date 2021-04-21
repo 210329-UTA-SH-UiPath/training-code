@@ -31,5 +31,8 @@ namespace HeroData.Entities
         public string Alias { get; set; }
         [StringLength(50)]
         public string HideOut { get; set; }
+        // 1 to many relationship
+        //public virtual ICollection<SuperPower> SuperPower { get; set; }
+        public virtual SuperPower SuperPower { get; set; } //virtual here means the values are lazily loaded.
     }
 }
