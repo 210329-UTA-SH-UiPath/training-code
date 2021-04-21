@@ -20,18 +20,22 @@ namespace HeroService.Controllers
         };
 
         [HttpGet]
-        public ActionResult<SuperHero> Get()
+        //public ActionResult<SuperHero> Get()
+        public IEnumerable<SuperHero> Get()// Specific type
         {
-            return Ok(superHeroes);
+            // return Ok(superHeroes);
+            return superHeroes;
         }
         [HttpGet("{id}")]
-        public ActionResult<SuperHero> Get(int id)
+        //public ActionResult<SuperHero> Get(int id)
+        public SuperHero Get(int id)
         {
             var superHero=superHeroes.Find(x => x.id == id);
             if (superHero == null)
-                return NotFound($"The super hero with id {id} is not in the database");
+                //return NotFound($"The super hero with id {id} is not in the database");
+                return superHero;
             else
-                return Ok(superHero);
+                return superHero;
         }
         [HttpPost]
         public IActionResult Post(SuperHero superHero)

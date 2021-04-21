@@ -27,7 +27,7 @@
                 - Fault Contract
             - Consume a [SOAP Service](https://www.c-sharpcorner.com/article/calling-web-service-using-soap-request/) 
             - To test a SOAP Service you can use [SOAP Ui](https://www.soapui.org/)
-            
+
     - [RESTFul Service](https://restfulapi.net/rest-architectural-constraints/)
         - [REST Principles/Constraints](https://restfulapi.net/)
         - REST only uses Http(s).
@@ -48,6 +48,14 @@
     - Easy setup and extend for REST over SOAP service.
     - Statelessness of RESTful service is helpful in scalability.
     - Reachability of clients because of HTTP as we have more devices supporting HTTP.
+## EFCore Code-First
+- Install packages from Package Manager Console(command line based) or Nuget Package Manger (GUI based)
+    - `Microsoft.EntityFrameworkCore.Design`
+    - `Microsoft.EntityFrameworkCore.Tools`
+    - `Microsoft.EntityFrameworkCore.SqlServer`
+- Create Entities and the DbContext class. Entities and DbContext class can be create in 2 ways:
+    1. Data Annotations - used for validations as well adding constraints to Db schema.
+    2. Fluent API - used for validations as well adding constraints to Db schema.
 
 ## ASP.Net Core Web API 
 - [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): Whenever client request for a format of data using *Accept* header, this is called content Negotiation.
