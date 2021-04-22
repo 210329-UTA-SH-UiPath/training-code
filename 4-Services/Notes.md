@@ -60,12 +60,111 @@
 - 1-1 - one to one
 - 1-* - one to many
 - *-* - many to many (EFCore 5.x+ create a bridge/junction table in DB)
+
 ## ASP.Net Core Web API 
-- [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): Whenever client request for a format of data using *Accept* header, this is called content Negotiation.
+### Return Types of Actions
+- Specific Type (SuperHero, SuperPower)
+  - Use IEnumerable for Synchronous operations but not recommended with large records
+  - Use IAsyncEnumerable to return records in async way
+- IActionResult (supports more or less all results as it is the super parent)
+  - Use whenever you want to return multiple **ActionResult**
+  - Different ActionResult like **OkObjectResult(200)**, **NotFoundResult(404)**, **BadRequestResult(400)**, **ContentResult**, **JsonResult**
+- ActionResult<T>
+
+## Validations:
+- To check the user's input at client side as well as Server side we use validations
+- Data Annotations: Can be used to:
+    - perform client side validations using annotations like StringLength/Range,RegularExpression, Required
+    - Display Views : Datatype, Display Name
+    - Mention schema logic: Key, Foreign Key, DataType
+
+## Lifetime of the context
+- there are built in IoC containers that manages the lifetime of a registered service (Context)
+    - Singleton - service will be available through out the lifetime of the application
+    - Transient - it will create a new instance of the the specified service type every time you ask for it.
+    - Scoped - it will create the instance of the specified service once per request and it will be shared in a single request.
+
+### Different Attributes for Controllers and Actions
+In Microsoft.AspNetCore.Mvc provides following attributes:
+- [Route]
+- [Bind]
+- [HttpGet]
+- [Produces] - specifies the data that an action returns
+- [Consumes] - specifies the data that an action recieves
+- [ApiController]
+  
+### Binding Source
+- [FromBody]
+- [FromForm]
+- [FromQuery]
+- [FromRoute]
+- [FromHeader]
+- [FromServices]
+
+### Model Binding
+- It is a mechanism which allows the binding of values of parameters action methods from different locations of that data:
+    - RouteData
+    - FormCollection
+    - QueryString
+    - File
+
+### Routing 
+- mechanism to implement powerful and meaningful URLs and its mapping
+- It is Performed by Routing Engine
+- A routing engine has a route table which maintains the repository of the the patterns, controller, actions and its parameters.
+- Link generation independant of the file structure of webserver.
+- Routing can be done in 2 ways:
+    1. Conventional based Routing - globally defining of the routes
+    2. Attribute based Routing - Routes for Controller and action methods
+
+### [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): 
+- **Content Negotiation** - Content negotiation occurs when the client specifies an Accept header. The default format used by ASP.NET Core is JSON.
+- To create custom formatter - create a class (MyFormatter) which inhertis from TextOutputFormatter
 - By Default Asp.Net core offers Json data unless configured.
 - Some browsers also have default accept header like edge and IE requests for JSON.
 - Or use Formatter custom or default
+- ```
+  services.AddControllers(options=>
+          options.InputFormatters.Insert(0, new MyFormatter());
+          options.OutputFormatters.Insert(0, new MyFormatter());
+    );
+  ```
+## Security in Asp.Net Core Web API
+### CORS
+- Cross Origin Requests
+- Mordern browsers only allow same origin requests for security purpose
+- Same Origin 
+    - http://www.abc.com/index.html
+    - http://www.abc.com/aboutus.html
+- Different Origins
+  - https://www.abc.net
+  - https://www.abc.com
+  - tcp://abc.com
+  - http:www.abc.com
+  - https://www.abc.com:8085
 
+#### Enable CORS
+- There are three ways to enable CORS:
+1. In middleware using a named policy or default policy.
+2. Using endpoint routing.
+3. With the [EnableCors] attribute.
+
+### Authentication using JWT (this is not a part of curriculum, just for extra knowledge if anyone is curious)
+- Authentication: user's identity is recognized
+- Authorization: user is granted with access rights
+- JWT: JSON Web Tokens
+  - JWT has 3 parts separated by .
+  - header.payload.signature
+
+### [Secrets Management](https://dev.to/dotnet/how-to-store-app-secrets-for-your-asp-net-core-project-2j5b)
+- to store sensitive/confidential data/environment/individual/application/centralized
+- Hardcoded (not recommended at all), *Setting.json, Secrets file, Azure Key Vault (most recommended)
+- Generate `Secrets.json` by **right clicking on the Api project** and click **Manage Secrets**
+- the `Secrets.json` file is stored in `C:\Users\<username>\AppData\Roaming\Microsoft\UserSecrets\<GUID>`
+- This  `Secrets.json` file is not pushed on source control and it is per individual basis
+
+### [Swagger or Open API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-5.0)
+- Documentation is an important practise in SOA.
 
 ## How can you consume an Asp.Net Web API
 1. Client-side -> using JS or any frameworks based on client-scripting language
