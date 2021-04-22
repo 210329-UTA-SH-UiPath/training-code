@@ -62,8 +62,8 @@ The project should support objects of Customer, Store, Order, Pizza.
 
 ## timelines
 
-+ code-freeze on _April 26_ at 11:59p Eastern
-+ presentation on _April 27_ starting at 9.30a Eastern
++ code-freeze on _April 28_ at 11:59p Eastern
++ presentation on _April 29_ starting at 9.30a Eastern
 + expect _mvp status_ for the project:
   - able to order at least 1 pizza (custom or preset)
   - able to save order in DB-system
