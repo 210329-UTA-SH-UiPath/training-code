@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HeroData.Entities
 {
-    class SuperPower
+    public class SuperPower
     {
         public SuperPower()
         {

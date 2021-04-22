@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;//constraints and display
 namespace HeroData.Entities
 {
     [Table("superhero")]
-    class SuperHero
+   public class SuperHero
     {
         public SuperHero()
         {

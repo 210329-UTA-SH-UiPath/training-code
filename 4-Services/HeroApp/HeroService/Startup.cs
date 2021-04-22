@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HeroData.Entities;
+using Microsoft.EntityFrameworkCore;
+using HeroDomain.Abstraction;
+using HeroData.Repositories;
 
 namespace HeroService
 {
@@ -28,6 +32,10 @@ namespace HeroService
         {
 
             services.AddControllers();
+            services.AddDbContext<SuperHeroContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SuperHeroDb"))
+            );
+            services.AddScoped<ISuperHeroRepository, SuperHeroRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HeroService", Version = "v1" });

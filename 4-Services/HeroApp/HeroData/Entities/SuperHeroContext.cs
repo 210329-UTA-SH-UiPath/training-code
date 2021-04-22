@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HeroData.Entities
 {
-    class SuperHeroContext:DbContext
+    public class SuperHeroContext:DbContext
     {
         public SuperHeroContext()
         {
