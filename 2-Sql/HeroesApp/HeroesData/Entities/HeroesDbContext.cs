@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HeroesData.Entities
 {
-    public partial class HeroesDbContext : DbContext
+    public partial class HeroesDbContext : DbContext// make session with the database which is used to perform CRUD operation in DB
     {
         public HeroesDbContext()
         {
