@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,22 +18,24 @@ namespace HeroData.Repositories
         }
         public void AddSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            context.Add(mapper.Map(superHero));
+            context.SaveChanges();
         }
 
         public void DeleteSuperHero(int id)
         {
-            throw new NotImplementedException();
+            context.Remove(GetSuperHeroById(id));
+            context.SaveChanges();
         }
 
-        public SuperHero GetSuperHeroById()
+        public SuperHero GetSuperHeroById(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map(context.SuperHeroes.Find(id));
         }
 
-        public SuperHero GetSuperHeroByName()
+        public SuperHero GetSuperHeroByAlias(string name)
         {
-            throw new NotImplementedException();
+            return context.SuperHeroes.Where(s => s.Alias == name).Select(mapper.Map).FirstOrDefault();
         }
 
         public IEnumerable<SuperHero> GetSuperHeroes()
@@ -44,7 +46,14 @@ namespace HeroData.Repositories
 
         public SuperHero UpdateSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            var updateThisSuperHero = GetSuperHeroById(superHero.Id);
+            updateThisSuperHero.RealName = superHero.RealName;
+            updateThisSuperHero.Id = superHero.Id;
+            updateThisSuperHero.Alias = superHero.Alias;
+            updateThisSuperHero.HideOut = superHero.HideOut;
+            updateThisSuperHero.SuperPower = superHero.SuperPower;
+            context.SaveChanges();
+            return updateThisSuperHero;
         }
     }
 }
