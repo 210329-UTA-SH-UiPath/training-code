@@ -76,11 +76,8 @@ namespace HeroData.Repositories
                 return superHeroToChange;
             }
             else
-            {
-                AddSuperHero(superHero);
-                var superHeroAdded = GetSuperHeroById(superHero.Id);
-                return superHeroAdded;
-            }
+                return null;
+
         }
     }
 }

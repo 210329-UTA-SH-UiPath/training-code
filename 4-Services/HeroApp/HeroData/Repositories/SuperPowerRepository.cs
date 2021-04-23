@@ -64,11 +64,7 @@ namespace HeroData.Repositories
                 return superPowerToChange;
             }
             else
-            {
-                AddSuperPower(superPower);
-                var superPowerAdded = GetSuperPowerById(superPower.Id);
-                return superPowerAdded;
-            }
+                return null;
         }
     }
 }
