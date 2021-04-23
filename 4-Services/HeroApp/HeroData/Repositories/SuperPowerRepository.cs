@@ -12,14 +12,14 @@ namespace HeroData.Repositories
     {
         private readonly Entities.SuperHeroContext context;
         Mappers.IMapper mapper = new Mappers.Mapper();
-        public SuperHeroRepository(Entities.SuperHeroContext context)
+        public SuperPowerRepository(Entities.SuperHeroContext context)
         {
             this.context = context;
         }
 
         public IEnumerable<SuperPower> GetSuperPowers()
         {
-            var superPowers = context.SuperPowers.Select(mapper.Map);
+            var superPowers = context.SuperPowers.Select(mapper.Map).ToList();
             return superPowers;
         }
         public SuperPower GetSuperPowerById(int id)
