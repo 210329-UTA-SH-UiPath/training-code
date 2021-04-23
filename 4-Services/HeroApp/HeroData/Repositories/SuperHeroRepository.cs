@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HeroDomain.Abstraction;
 using HeroDomain.Models;
-
+using Microsoft.EntityFrameworkCore;
 namespace HeroData.Repositories
 {
     public class SuperHeroRepository : ISuperHeroRepository
@@ -18,22 +18,41 @@ namespace HeroData.Repositories
         }
         public void AddSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            context.Add(mapper.Map(superHero));
+            context.SaveChanges();
         }
 
         public void DeleteSuperHero(int id)
         {
-            throw new NotImplementedException();
+            var superHeroToDelete = context.SuperHeroes.Find(id);
+            if (superHeroToDelete != null)
+            {
+                context.SuperHeroes.Remove(superHeroToDelete);
+                context.SaveChanges();
+            }
         }
 
-        public SuperHero GetSuperHeroById()
+        public SuperHero GetSuperHeroById(int id)
         {
-            throw new NotImplementedException();
+            var superHero = context.SuperHeroes.Where(x => x.Id == id).Include(superHero => superHero.SuperPower).FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
-        public SuperHero GetSuperHeroByName()
+        public SuperHero GetSuperHeroByName(string RealName)
         {
-            throw new NotImplementedException();
+            var superHero = context.SuperHeroes.Where(x => x.RealName == RealName).Include(superHero => superHero.SuperPower)
+                .FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
         public IEnumerable<SuperHero> GetSuperHeroes()
@@ -44,7 +63,24 @@ namespace HeroData.Repositories
 
         public SuperHero UpdateSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            var superHeroToChange = GetSuperHeroById(superHero.Id);
+
+            if (superHeroToChange != null)
+            {
+                superHeroToChange.RealName = superHero.RealName;
+                superHeroToChange.Alias = superHero.Alias;
+                superHeroToChange.HideOut = superHero.HideOut;
+                superHeroToChange.SuperPower = superHero.SuperPower;
+                context.Update(mapper.Map(superHeroToChange));
+                context.SaveChanges();
+                return superHeroToChange;
+            }
+            else
+            {
+                AddSuperHero(superHero);
+                var superHeroAdded = GetSuperHeroById(superHero.Id);
+                return superHeroAdded;
+            }
         }
     }
 }

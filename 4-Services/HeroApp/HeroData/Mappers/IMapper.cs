@@ -12,5 +12,7 @@ namespace HeroData.Mappers
         HeroData.Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero);
         HeroDomain.Models.SuperPower Map(HeroData.Entities.SuperPower superPower);
         HeroData.Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower);
+
+
     }
 }
