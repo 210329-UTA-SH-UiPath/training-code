@@ -21,12 +21,12 @@ namespace HeroData.Mappers
 
         public Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero)
         {
-            return new HeroDomain.Models.SuperHero()
+            return new Entities.SuperHero()
             {
                 Id = superHero.Id,
                 RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
-                
+                Alias = superHero.Alias
             };
         }
 
