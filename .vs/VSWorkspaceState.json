@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\4-Services",
+    "\\4-Services\\HeroApp"
   ],
-  "SelectedNode": "\\HeroApp.sln",
+  "SelectedNode": "\\4-Services\\HeroApp\\HeroApp.sln",
   "PreviewInSolutionExplorer": false
 }
