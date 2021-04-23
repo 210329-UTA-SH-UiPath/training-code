@@ -17,12 +17,12 @@ namespace HeroData.Repositories
             this.context = context;
         }
 
-        IEnumerable<SuperPower> GetSuperPowers()
+        public IEnumerable<SuperPower> GetSuperPowers()
         {
             var superPowers = context.SuperPowers.Select(mapper.Map);
             return superPowers;
         }
-        SuperPower GetSuperPowerById(int id)
+        public SuperPower GetSuperPowerById(int id)
         {
             var SuperPower = context.SuperPowers.Where(x => x.Id == id).FirstOrDefault();
             if (SuperPower == null)
@@ -31,7 +31,7 @@ namespace HeroData.Repositories
             }
             return mapper.Map(SuperPower);
         }
-        SuperPower GetSuperPowerByName(string name)
+        public SuperPower GetSuperPowerByName(string name)
         {
             var SuperPower = context.SuperPowers.Where(x => x.Name == name).FirstOrDefault();
             if (SuperPower == null)
@@ -40,12 +40,12 @@ namespace HeroData.Repositories
             }
             return mapper.Map(SuperPower);
         }
-        void AddSuperPower(SuperPower superPower)
+        public void AddSuperPower(SuperPower superPower)
         {
             context.Add(mapper.Map(superPower));
             context.SaveChanges();
         }
-        SuperPower UpdateSuperPower(SuperPower superPower)
+        public SuperPower UpdateSuperPower(SuperPower superPower)
         {
             var record = context.SuperPowers.FirstOrDefault(x => x.Id == superPower.Id);
             record.Name = superPower.Name;
@@ -53,8 +53,9 @@ namespace HeroData.Repositories
             record.OwnerId = superPower.OwnerId;
             context.update(record);
             context.SaveChanges();
+            return mapper.map(record);
         }
-        void DeleteSuperPower(int id)
+        public void DeleteSuperPower(int id)
         {
             var superPower = context.SuperPowers.FirstOrDefault(x => x.Id == superPower.Id);
             context.delete(superPower);
