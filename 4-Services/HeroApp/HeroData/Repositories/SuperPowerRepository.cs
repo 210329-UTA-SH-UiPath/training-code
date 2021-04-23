@@ -51,15 +51,15 @@ namespace HeroData.Repositories
             record.Name = superPower.Name;
             record.Description = superPower.Description;
             record.OwnerId = superPower.OwnerId;
-            context.update(record);
+            context.Update(record);
             context.SaveChanges();
-            return mapper.map(record);
+            return mapper.Map(record);
         }
         public void DeleteSuperPower(int id)
         {
             var superPower = context.SuperPowers.FirstOrDefault(x => x.Id == superPower.Id);
-            context.delete(superPower);
-            context.saveChanges();
+            context.Remove(superPower);
+            context.SaveChanges();
         }
     }
 }
