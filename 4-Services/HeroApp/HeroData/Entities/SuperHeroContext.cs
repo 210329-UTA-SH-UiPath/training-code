@@ -23,7 +23,7 @@ namespace HeroData.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=tcp:superherosdb-codefirst.database.windows.net,1433;Initial Catalog=SuperHerosDb;Persist Security Info=False;User ID=reyes;Password=Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=tcp:heroesapp.database.windows.net,1433;Initial Catalog=SuperHerosDb;Persist Security Info=False;User ID=dev;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
