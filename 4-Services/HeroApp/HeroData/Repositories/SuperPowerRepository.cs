@@ -57,8 +57,11 @@ namespace HeroData.Repositories
         }
         public void DeleteSuperPower(int id)
         {
-            var superPower = context.SuperPowers.FirstOrDefault(x => x.Id == superPower.Id);
-            context.Remove(superPower);
+            var superPower = context.SuperPowers.FirstOrDefault(x => x.Id == id);
+            if (superPower != null)
+            {
+                context.Remove(superPower);
+            }
             context.SaveChanges();
         }
     }
