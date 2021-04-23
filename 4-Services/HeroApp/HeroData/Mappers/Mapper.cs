@@ -24,14 +24,15 @@ namespace HeroData.Mappers
             return new Entities.SuperHero()
             {
                 Id = superHero.Id,
-                RealName = superHero.RealName,
+                Alias = superHero.Alias,
                 HideOut = superHero.HideOut,
-                Alias = superHero.Alias
+                RealName = superHero.RealName
             };
         }
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
+
             return new HeroDomain.Models.SuperPower()
             {
                 Id = superPower.Id,
@@ -43,6 +44,7 @@ namespace HeroData.Mappers
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
+
             return new Entities.SuperPower()
             {
                 Id = superPower.Id,

@@ -18,22 +18,57 @@ namespace HeroData.Repositories
         }
         public void AddSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            context.Add(mapper.Map(superHero));
+            context.SaveChanges();
         }
 
-        public void DeleteSuperHero(int id)
+        public void DeleteSuperHero(int Id)
         {
-            throw new NotImplementedException();
+            var herotobedeleted = context.SuperHeroes.Where(x => x.Id == Id).FirstOrDefault();
+            if (herotobedeleted != null)
+            {
+                context.SuperHeroes.Remove(herotobedeleted);
+                context.SaveChanges();
+            }
         }
 
-        public SuperHero GetSuperHeroById()
+        public SuperHero GetSuperHeroById(int Id)
         {
-            throw new NotImplementedException();
+            var hero = context.SuperHeroes.Where(x => x.Id == Id).FirstOrDefault();
+            if (hero != null)
+            {
+                return mapper.Map(hero);
+            }
+            else
+            {
+                return new SuperHero
+                {
+
+                    RealName = "NotFound",
+                    HideOut = "NotFound",
+                    Alias = "NotFound"
+                };
+            }
+
         }
 
-        public SuperHero GetSuperHeroByName()
+        public SuperHero GetSuperHeroByName(string name)
         {
-            throw new NotImplementedException();
+            var hero = context.SuperHeroes.Where(x => x.RealName == name).FirstOrDefault();
+            if (hero != null)
+            {
+                return mapper.Map(hero);
+            }
+            else
+            {
+                return new SuperHero
+                {
+
+                    RealName = "NotFound",
+                    HideOut = "NotFound",
+                    Alias = "NotFound"
+                };
+            }
         }
 
         public IEnumerable<SuperHero> GetSuperHeroes()
@@ -44,7 +79,17 @@ namespace HeroData.Repositories
 
         public SuperHero UpdateSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            var superHeroChanges = context.SuperHeroes.Where(x => x.Id == superHero.Id).FirstOrDefault();
+            if (superHero != null)
+            {
+                superHero.Alias = superHeroChanges.Alias;
+                superHero.HideOut = superHeroChanges.HideOut;
+                context.Update(superHero);
+                context.SaveChanges();
+                return superHero;
+            }
+
+            return mapper.Map(superHeroChanges);
         }
     }
 }
