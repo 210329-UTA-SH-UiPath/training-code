@@ -1,0 +1,11 @@
+h1, h2, h3 {
+  color: blue;
+}
+div img {
+  border-color: black;
+  
+}
+a img:hover { 
+  opacity: 50%;
+}
+
