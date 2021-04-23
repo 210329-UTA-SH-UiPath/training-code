@@ -21,25 +21,35 @@ namespace HeroData.Mappers
 
         public Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero)
         {
-            return new Entities.SuperHero()
+            return new HeroDomain.Models.SuperHero()
             {
                 Id = superHero.Id,
-                Alias = superHero.Alias,
+                RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
-                RealName = superHero.RealName
+                
             };
         }
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            return new HeroDomain.Models.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId
+            };
         }
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            return new Entities.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId
+            };
         }
     }
 }

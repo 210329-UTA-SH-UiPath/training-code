@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj": {}
+    "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj": {}
   },
   "projects": {
-    "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
+    "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj",
+        "projectUniqueName": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj",
         "projectName": "HeroData",
-        "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj",
-        "packagesPath": "C:\\Users\\PushpinderKaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\obj\\",
+        "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj",
+        "packagesPath": "C:\\Users\\kirby\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PushpinderKaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kirby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
-                "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
+              "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
+                "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
               }
             }
           }
@@ -92,21 +92,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
+    "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj",
+        "projectUniqueName": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj",
         "projectName": "HeroDomain",
-        "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj",
-        "packagesPath": "C:\\Users\\PushpinderKaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\obj\\",
+        "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj",
+        "packagesPath": "C:\\Users\\kirby\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PushpinderKaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kirby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,21 +146,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj": {
+    "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
+        "projectUniqueName": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
         "projectName": "HeroService",
-        "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
-        "packagesPath": "C:\\Users\\PushpinderKaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\obj\\",
+        "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
+        "packagesPath": "C:\\Users\\kirby\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PushpinderKaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kirby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -174,11 +174,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
-                "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj"
+              "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
+                "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj"
               },
-              "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
-                "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
+              "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
+                "projectPath": "C:\\Users\\kirby\\revature\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
               }
             }
           }
@@ -220,7 +220,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

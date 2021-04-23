@@ -38,7 +38,7 @@ namespace HeroData.Repositories
 
         public IEnumerable<SuperHero> GetSuperHeroes()
         {
-            var superHeroes=context.SuperHeroes.Select(mapper.Map);
+            var superHeroes = context.SuperHeroes.Select(mapper.Map);
             return superHeroes;
         }
 
