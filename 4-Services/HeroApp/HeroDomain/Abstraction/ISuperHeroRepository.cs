@@ -10,8 +10,8 @@ namespace HeroDomain.Abstraction
    public interface ISuperHeroRepository
     {
         IEnumerable<SuperHero> GetSuperHeroes();
-        SuperHero GetSuperHeroById();
-        SuperHero GetSuperHeroByName();
+        SuperHero GetSuperHeroById(int id);
+        SuperHero GetSuperHeroByName(string name);
         void AddSuperHero(SuperHero superHero);
         SuperHero UpdateSuperHero(SuperHero superHero);
         void DeleteSuperHero(int id);

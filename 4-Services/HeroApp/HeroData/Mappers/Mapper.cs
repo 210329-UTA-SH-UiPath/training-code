@@ -12,7 +12,7 @@ namespace HeroData.Mappers
         {
             return new HeroDomain.Models.SuperHero()
             {
-                Id = superHero.Id,
+                Id = superHero.Id
                 RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
                 Alias = superHero.Alias
@@ -32,14 +32,24 @@ namespace HeroData.Mappers
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            return new HeroDomain.Models.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId;
+            }
         }
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            return new HeroDomain.Models.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId;
+            }
         }
     }
 }
