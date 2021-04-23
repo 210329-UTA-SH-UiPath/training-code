@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,33 +18,65 @@ namespace HeroData.Repositories
         }
         public void AddSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            if (superHero != null)
+            {
+                context.Add(mapper.Map(superHero));
+                context.SaveChanges();
+            }
         }
 
         public void DeleteSuperHero(int id)
         {
-            throw new NotImplementedException();
+            var superHero = GetSuperHeroById(id);
+            if (superHero != null)
+            {
+                context.Remove(superHero);
+                context.SaveChanges();
+            }
         }
 
-        public SuperHero GetSuperHeroById()
+        public SuperHero GetSuperHeroById(int id)
         {
-            throw new NotImplementedException();
+            var superHero = context.SuperHeroes.Where(x => x.Id == id).FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
-        public SuperHero GetSuperHeroByName()
+        public SuperHero GetSuperHeroByAlias(string name)
         {
-            throw new NotImplementedException();
+            var superHero = context.SuperHeroes.Where(x => x.Alias == name).FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
         public IEnumerable<SuperHero> GetSuperHeroes()
         {
-            var superHeroes = context.SuperHeroes.Select(mapper.Map);
+            var superHeroes=context.SuperHeroes.Select(mapper.Map);
             return superHeroes;
         }
 
         public SuperHero UpdateSuperHero(SuperHero superHero)
         {
-            throw new NotImplementedException();
+            var updateThisSuperHero = GetSuperHeroById(superHero.Id);
+            if (updateThisSuperHero != null)
+            {
+                updateThisSuperHero.RealName = superHero.RealName;
+                updateThisSuperHero.Id = superHero.Id;
+                updateThisSuperHero.Alias = superHero.Alias;
+                updateThisSuperHero.HideOut = superHero.HideOut;
+                updateThisSuperHero.SuperPower = superHero.SuperPower;
+                context.SaveChanges();
+                return updateThisSuperHero;
+            }
+            return null;
         }
     }
 }
