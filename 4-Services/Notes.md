@@ -96,7 +96,7 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 ### Binding Source
 - [FromBody]
 - [FromForm]
-- [FromQuery]
+- [FromQuery] - start a `query string` with `?` and if you have more than 1 parameter then use trailing `&`
 - [FromRoute]
 - [FromHeader]
 - [FromServices]

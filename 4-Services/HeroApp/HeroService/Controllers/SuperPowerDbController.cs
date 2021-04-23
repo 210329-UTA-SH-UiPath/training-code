@@ -31,5 +31,19 @@ namespace HeroService.Controllers
                 return StatusCode(400, ex.Message);
             }
         }
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<SuperHero> Get(int id)
+        {
+            try
+            {
+                return Ok(repo.GetSuperPowerById(id));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
