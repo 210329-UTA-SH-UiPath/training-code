@@ -1,0 +1,16 @@
+﻿@*@(Layout="~/Views/Shared/_Layout.cshtml")*@
+@{ 
+    ViewData["Title"] = "Home Page";
+    //var superHero = ViewData["superhero"] as SuperHero;
+    var superHero = ViewBag.superhero;
+}
+@*@section time{
+    <h4>@DateTime.Now</h4>
+}*@
+<div class="text-center">
+  <h1>@superHero.Id  @superHero.Alias</h1>
+    <h2>@superHero.HideOut</h2> <h2>@superHero.RealName</h2>
+</div>
+@*@Html.RenderPartial("_TimePartial")*@
+<partial name="_TimePartial" />
+

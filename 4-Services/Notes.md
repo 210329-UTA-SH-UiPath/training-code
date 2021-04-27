@@ -74,15 +74,33 @@
 ## Validations:
 - To check the user's input at client side as well as Server side we use validations
 - Data Annotations: Can be used to:
-    - perform client side validations using annotations like StringLength/Range,RegularExpression, Required
+    - Perform client side validations using annotations like StringLength/Range,RegularExpression, Required
     - Display Views : Datatype, Display Name
     - Mention schema logic: Key, Foreign Key, DataType
+- You can also write the logic for the Validation in the models 
+    ```
+        private string _alias;
+        
+        public string Alias
+        {
+
+            get => _alias;
+            set
+            {
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("SuperHero Alias must not be empty", nameof(value));
+                }
+                _alias = value;
+            }
+        }
+    ```
 
 ## Lifetime of the context
 - there are built in IoC containers that manages the lifetime of a registered service (Context)
-    - Singleton - service will be available through out the lifetime of the application
-    - Transient - it will create a new instance of the the specified service type every time you ask for it.
-    - Scoped - it will create the instance of the specified service once per request and it will be shared in a single request.
+    - **Singleton** - service will be available through out the lifetime of the application
+    - **Transient** - it will create a new instance of the the specified service type every time you ask for it.
+    - **Scoped** - it will create the instance of the specified service once per request and it will be shared in a single request.
 
 ### Different Attributes for Controllers and Actions
 In Microsoft.AspNetCore.Mvc provides following attributes:
@@ -96,7 +114,7 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 ### Binding Source
 - [FromBody]
 - [FromForm]
-- [FromQuery]
+- [FromQuery] - start a `query string` with `?` and if you have more than 1 parameter then use trailing `&`
 - [FromRoute]
 - [FromHeader]
 - [FromServices]
@@ -108,7 +126,7 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
     - QueryString
     - File
 
-### Routing 
+### [Routing](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0)
 - mechanism to implement powerful and meaningful URLs and its mapping
 - It is Performed by Routing Engine
 - A routing engine has a route table which maintains the repository of the the patterns, controller, actions and its parameters.
@@ -116,6 +134,10 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 - Routing can be done in 2 ways:
     1. Conventional based Routing - globally defining of the routes
     2. Attribute based Routing - Routes for Controller and action methods
+- [Atrribute Routing for REST APIs](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#attribute-routing-for-rest-apis)
+- [Attribute routing with Http verb attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#attribute-routing-with-http-verb-attributes)
+- [Resolving Ambigious links](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#resolving-ambiguous-actions)
+
 
 ### [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): 
 - **Content Negotiation** - Content negotiation occurs when the client specifies an Accept header. The default format used by ASP.NET Core is JSON.
@@ -166,9 +188,9 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 ### [Swagger or Open API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-5.0)
 - Documentation is an important practise in SOA.
 
-## How can you consume an Asp.Net Web API
-1. Client-side -> using JS or any frameworks based on client-scripting language
-2. Server-side -> HttpClient
+## How can you consume an Asp.Net Core Web API
+1. Client-side -> using JS or any frameworks based on client-scripting language. For JS -> XMLHttpRequest or fetch api
+2. Server-side -> for C# -> HttpClient
 
 ## references 
 - [Practise](https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/)
