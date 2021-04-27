@@ -48,5 +48,32 @@ namespace MVCFrontEnd.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult Update(SuperHero superHero)
+        {
+            if (ModelState.IsValid)
+            {
+                client.UpdateSuperHero(superHero);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(superHero);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                client.DeleteSuperHero(id);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
