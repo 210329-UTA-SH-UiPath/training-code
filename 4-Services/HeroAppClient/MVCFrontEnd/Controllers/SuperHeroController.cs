@@ -48,5 +48,34 @@ namespace MVCFrontEnd.Controllers
             }
         }
 
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var superHero = client.GetSuperHeroById(id);
+            return View(superHero);
+        }
+
+        [HttpPost]
+        public IActionResult Edit([Bind("Alias, RealName, HideOut")] SuperHero superHero)
+        {
+            if (ModelState.IsValid)
+            {
+                client.EditSuperHero(superHero);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(superHero);
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            client.DeleteSuperHeroById(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

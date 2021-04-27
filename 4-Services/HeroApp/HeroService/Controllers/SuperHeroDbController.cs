@@ -35,7 +35,7 @@ namespace HeroService.Controllers
         [HttpGet("{id:int}")]//"api/SuperHeroDb/1"
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get([FromRoute]int id)//model binder of asp.net core will look for this parameter from request route
+        public ActionResult<SuperHero> Get([FromRoute] int id)//model binder of asp.net core will look for this parameter from request route
         {
             try
             {
@@ -49,7 +49,7 @@ namespace HeroService.Controllers
         [HttpGet("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get([FromQuery]string name)//model binder of asp.net core will look for this parameter from query string
+        public ActionResult<SuperHero> Get([FromQuery] string name)//model binder of asp.net core will look for this parameter from query string
         {
             try
             {
@@ -65,7 +65,7 @@ namespace HeroService.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[Consumes("application/json")]
         [Consumes(MediaTypeNames.Application.Json)]
-        public IActionResult Post([FromBody]SuperHero superHero) //model binder of asp.net core will look for this parameter from request body
+        public IActionResult Post([FromBody] SuperHero superHero) //model binder of asp.net core will look for this parameter from request body
         {
             if (superHero == null)
             {
@@ -80,8 +80,41 @@ namespace HeroService.Controllers
                 else
                 {
                     repo.AddSuperHero(superHero);
-                    return CreatedAtAction(nameof(Get), new { id=superHero.Id},superHero);
+                    return CreatedAtAction(nameof(Get), new { id = superHero.Id }, superHero);
                 }
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Delete(int id)
+        {
+            if (repo.GetSuperHeroById(id) == null)
+            {
+                return BadRequest("SuperHero cannot be deleted because it does not exist.");
+            }
+            else
+            {
+                repo.DeleteSuperHero(id);
+                return NoContent();
+            }
+        }
+
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Put(SuperHero superHero)
+        {
+            if (repo.GetSuperHeroById(superHero.Id) == null)
+            {
+                return BadRequest("SuperHero cannot be updated because it does not exist.");
+            }
+            else
+            {
+                repo.UpdateSuperHero(superHero);
+                return NoContent();
             }
         }
 
