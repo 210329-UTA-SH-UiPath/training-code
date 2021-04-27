@@ -87,7 +87,6 @@
             - Break large view in to small views for ease.
             - For reusing a view logic.
     - Excecution of view calls: _ViewStart -> _Layout -> Controller Specific View -> Partial View
-
 ### Model Binding
 - It is a mechanism which allows the binding of values of parameters action methods from different locations of that data:
     - RouteData
@@ -113,13 +112,13 @@
 
 ## Helpers in MVC Views
 - There are 2 types of helpers which can be used to generate the html at runtime by razor engine
-    - HTML Helpers: C# methods which create the HTML at run time
-    - Tag Helpers: which are more like mark ups and HTML friendly syntaxes
+    - [HTML Helpers](https://www.tutorialsteacher.com/mvc/html-helpers): C# methods which create the HTML at run time
+    - [Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/?view=aspnetcore-5.0): which are more like mark ups and HTML friendly syntaxes
 
 ## Validations:
 - To check the user's input at client side as well as Server side we use validations.
 - The validation attributes are checked on the client side before values are posted to the server, as well as on the server before the controller action is called.
-- Data Annotations: Can be used to:
+- [Data Annotations](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/validation?view=aspnetcore-5.0&tabs=visual-studio): Can be used to:
     - perform client side validations using annotations like StringLength/Range,RegularExpression, Required
     - Display Views : Datatype, Display Name
     - Mention schema logic: Key, Foreign Key, DataType

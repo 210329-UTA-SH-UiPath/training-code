@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVCFrontEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,28 @@ namespace MVCFrontEnd.Controllers
             var superHero = client.GetSuperHeroById(id);
             return View("IndexById",superHero);
         }
+        /// <summary>
+        /// This action will return you a scaffolded form
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ViewResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add([Bind("Alias, RealName, HideOut")]SuperHero superHero)
+        {
+            if (ModelState.IsValid)
+            {
+                client.AddSuperHero(superHero);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(superHero);
+            }
+        }
+
     }
 }
