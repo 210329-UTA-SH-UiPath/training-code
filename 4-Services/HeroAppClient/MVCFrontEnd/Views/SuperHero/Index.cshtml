@@ -40,9 +40,9 @@
                     @Html.DisplayFor(modelItem => item.HideOut)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {id=item.Id }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id, Alias = item.Alias, RealName = item.RealName, HideOut = item.HideOut }) |
                     @Html.ActionLink("Details", "GetById", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id, Alias = item.Alias, RealName = item.RealName, HideOut = item.HideOut })
                 </td>
             </tr>
         }

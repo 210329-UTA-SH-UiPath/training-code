@@ -48,5 +48,31 @@ namespace MVCFrontEnd.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult Edit([Bind("Id, Alias, RealName, HideOut")] SuperHero superHero)
+        {
+            if (ModelState.IsValid)
+            {
+                client.UpdateSuperHero(superHero);
+                RedirectToAction("Index");
+            }
+            return View(superHero);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete([Bind("Id, Alias, RealName, HideOut")] SuperHero superHero)
+        {
+
+            if (client.GetSuperHeroById(superHero.Id) is null)
+            {
+                // should never actually be hit but might as well check for it
+                return View();
+            }
+            client.DeleteSuperHero(superHero.Id);
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
