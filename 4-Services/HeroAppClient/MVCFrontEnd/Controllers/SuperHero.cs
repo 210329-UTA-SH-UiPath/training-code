@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace MVCFrontEnd.Controllers
 {
-    public class SuperHero : Controller
+    public class SuperHeroController : Controller
     {
         Client client = new Client();
         public IActionResult Index()
         {
             var superHeros=client.GetAllSuperHeroes();
+        
             return View(superHeros);
+        }
+        public ContentResult About()
+        {
+           return Content("This is a SuperHero App");
         }
     }
 }

@@ -12,7 +12,12 @@ namespace MVCFrontEnd.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        SuperHero superHero = new SuperHero() {
+             Id=1,
+             Alias="Spiderman",
+             RealName="Peter Parker",
+             HideOut="His apartment in Manhattan"
+        };
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -20,6 +25,9 @@ namespace MVCFrontEnd.Controllers
 
         public IActionResult Index()
         {
+            //ViewData["superhero"]="Spider man";
+            //ViewData["superhero"] = superHero;
+            ViewBag.superhero = superHero;
             return View();
         }
 
