@@ -51,7 +51,7 @@
 
 ### Passing data to views and [controllers](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/actions?view=aspnetcore-5.0)
 - Controllers to view data can be passed in 2 ways:
-    - Weakly-typed:
+    - Weakly-typed/loosely-typed:
         - ViewData: this is dictionery object which is a key value pair. It needs type casting for complex data except if its string.
         - ViewBag: this is dynamic type object which don't need casting for complex data. Also ViewBag is wrapper over viewdata
         - TempData:

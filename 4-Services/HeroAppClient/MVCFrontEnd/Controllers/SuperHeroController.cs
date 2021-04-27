@@ -19,5 +19,10 @@ namespace MVCFrontEnd.Controllers
         {
            return Content("This is a SuperHero App");
         }
+        public ViewResult GetById(int id)
+        {
+            var superHero = client.GetSuperHeroById(id);
+            return View("IndexById",superHero);
+        }
     }
 }

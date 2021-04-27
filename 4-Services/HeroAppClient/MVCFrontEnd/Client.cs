@@ -9,9 +9,9 @@ namespace MVCFrontEnd
 {
     public class Client
     {
-        public IEnumerable<SuperHero> GetAllSuperHeroes(string url= "https://localhost:44315/api/superHeroDb")
+        string url = "https://localhost:44315/api/superHeroDb/";
+        public IEnumerable<SuperHero> GetAllSuperHeroes()
         {
-            //url = https://localhost:44315/api/superHeroDb
             using var client =new HttpClient();
             client.BaseAddress = new Uri(url);
             var response=client.GetAsync("");
@@ -29,6 +29,27 @@ namespace MVCFrontEnd
             }
             else
                 return null;            
+        }
+
+        public SuperHero GetSuperHeroById(int id)
+        {
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri(url+id);
+            var response = client.GetAsync("");
+            response.Wait();
+
+            var result = response.Result;// this holds the output
+
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<SuperHero>();
+                readTask.Wait();
+
+                var superHeroes = readTask.Result;
+                return superHeroes;
+            }
+            else
+                return null;
         }
     }
 }
