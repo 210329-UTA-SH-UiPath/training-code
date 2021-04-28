@@ -33,6 +33,10 @@ namespace MVCFrontEnd
                 return null;            
         }
 
+        public async void UpdateSuperHero(SuperHero sh)
+        {
+        }
+
         public SuperHero GetSuperHeroById(int id)
         {
             using var client = new HttpClient();
@@ -61,6 +65,10 @@ namespace MVCFrontEnd
             var response=await client.PostAsync(url, data);
             var result=response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
+        }
+
+        public async void DeleteSuperHero(int id)
+        {
         }
     }
 }

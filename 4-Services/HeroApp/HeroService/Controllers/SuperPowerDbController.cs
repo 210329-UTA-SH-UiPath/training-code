@@ -20,7 +20,7 @@ namespace HeroService.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get()
+        public ActionResult<SuperPower> Get()
         {
             try
             {
@@ -34,7 +34,7 @@ namespace HeroService.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get(int id)
+        public ActionResult<SuperPower> Get(int id)
         {
             try
             {
@@ -43,6 +43,55 @@ namespace HeroService.Controllers
             catch (Exception ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult<SuperPower> Delete(int id)
+        {
+            repo.DeleteSuperPower(id);
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] SuperPower SuperPower) //model binder of asp.net core will look for this parameter from request body
+        {
+            if (SuperPower == null)
+            {
+                return BadRequest("The super hero you are trying to add is empty");
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.AddSuperPower(SuperPower);
+                    return CreatedAtAction(nameof(Get), new { id = SuperPower.Id }, SuperPower);
+                }
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody] SuperPower SuperPower) //model binder of asp.net core will look for this parameter from request body
+        {
+            if (SuperPower == null)
+            {
+                return BadRequest("The super hero you are trying to add is empty");
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.UpdateSuperPower(SuperPower);
+                    return CreatedAtAction(nameof(Get), new { id = SuperPower.Id }, SuperPower);
+                }
             }
         }
     }
