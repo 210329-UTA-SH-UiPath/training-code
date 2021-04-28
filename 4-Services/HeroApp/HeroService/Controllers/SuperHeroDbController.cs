@@ -85,5 +85,30 @@ namespace HeroService.Controllers
             }
         }
 
+        [HttpDelete("{id:int}")]//"api/SuperHeroDb/1"
+        public IActionResult Delete([FromRoute] int id)
+        {
+            if (repo.GetSuperHeroById(id) is null)
+            {
+                return BadRequest("Cannot delete superhero because a superhero with said ID does not exist");
+            }
+            repo.DeleteSuperHero(id);
+            return Ok();
+        }
+
+        [HttpPut("{id:int}")]//"api/SuperHeroDb/1"
+        public IActionResult Put([FromRoute] int id, [FromBody] SuperHero superHero)
+        {
+            if (repo.GetSuperHeroById(id) is null)
+            {
+                return BadRequest("Cannot update superhero because a superhero with said ID does not exist");
+            }
+            superHero.Id = id;
+            repo.UpdateSuperHero(superHero);
+            return Ok();
+        }
+
+
+
     }
 }
