@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HeroDomain.Abstraction;
 using HeroDomain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HeroData.Repositories
 {
@@ -37,7 +38,8 @@ namespace HeroData.Repositories
 
         public SuperHero GetSuperHeroById(int id)
         {
-            var superHero = context.SuperHeroes.Where(x => x.Id == id).FirstOrDefault();
+            var superHero = context.SuperHeroes.Where(x => x.Id == id).Include(superHero => superHero.SuperPower)
+                .FirstOrDefault();
             if (superHero != null)
             {
                 return mapper.Map(superHero);
