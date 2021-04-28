@@ -84,6 +84,56 @@ namespace HeroService.Controllers
                 }
             }
         }
+        
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        //[Consumes("application/json")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public IActionResult Put([FromBody] SuperHero superHero) //model binder of asp.net core will look for this parameter from request body
+        {
+            if (superHero == null || repo.GetSuperHeroById(superHero.Id) == null)
+            {
+                return BadRequest("The super hero you are trying to update doesn't exist");
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.UpdateSuperHero(superHero);
+                    return NoContent();
+                }
+            }
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        //[Consumes("application/json")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public IActionResult Delete([FromBody] int id) //model binder of asp.net core will look for this parameter from request body
+        {
+            if (repo.GetSuperHeroById(id) == null)
+            {
+                return BadRequest("The super hero you are trying to delete doesn't exist");
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.DeleteSuperHero(id);
+                    return NoContent();
+                }
+            }
+        }
 
     }
 }
