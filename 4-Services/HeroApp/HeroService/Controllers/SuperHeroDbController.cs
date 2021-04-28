@@ -110,11 +110,9 @@ namespace HeroService.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[Consumes("application/json")]
-        [Consumes(MediaTypeNames.Application.Json)]
         public IActionResult Delete([FromBody] int id) //model binder of asp.net core will look for this parameter from request body
         {
             if (repo.GetSuperHeroById(id) == null)
