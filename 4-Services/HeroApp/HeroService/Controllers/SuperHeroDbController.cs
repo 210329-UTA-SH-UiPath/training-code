@@ -85,5 +85,36 @@ namespace HeroService.Controllers
             }
         }
 
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<SuperHero> Put(SuperHero superHero)
+        {
+            try
+            {
+                return Ok(repo.UpdateSuperHero(superHero));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                repo.DeleteSuperHero(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+        }
+
     }
 }
