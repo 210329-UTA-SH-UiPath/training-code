@@ -35,7 +35,7 @@ namespace HeroService.Controllers
         [HttpGet("{id:int}")]//"api/SuperHeroDb/1"
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get([FromRoute]int id)//model binder of asp.net core will look for this parameter from request route
+        public ActionResult<SuperHero> Get([FromRoute] int id)//model binder of asp.net core will look for this parameter from request route
         {
             try
             {
@@ -49,7 +49,7 @@ namespace HeroService.Controllers
         [HttpGet("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<SuperHero> Get([FromQuery]string name)//model binder of asp.net core will look for this parameter from query string
+        public ActionResult<SuperHero> Get([FromQuery] string name)//model binder of asp.net core will look for this parameter from query string
         {
             try
             {
@@ -65,7 +65,7 @@ namespace HeroService.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[Consumes("application/json")]
         [Consumes(MediaTypeNames.Application.Json)]
-        public IActionResult Post([FromBody]SuperHero superHero) //model binder of asp.net core will look for this parameter from request body
+        public IActionResult Post([FromBody] SuperHero superHero) //model binder of asp.net core will look for this parameter from request body
         {
             if (superHero == null)
             {
@@ -80,10 +80,37 @@ namespace HeroService.Controllers
                 else
                 {
                     repo.AddSuperHero(superHero);
-                    return CreatedAtAction(nameof(Get), new { id=superHero.Id},superHero);
+                    return CreatedAtAction(nameof(Get), new { id = superHero.Id }, superHero);
                 }
             }
         }
 
+        [HttpPut]
+        public IActionResult Put([FromBody] SuperHero SuperHero) //model binder of asp.net core will look for this parameter from request body
+        {
+            if (SuperHero == null)
+            {
+                return BadRequest("The super hero you are trying to add is empty");
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.UpdateSuperHero(SuperHero);
+                    return CreatedAtAction(nameof(Get), new { id = SuperHero.Id }, SuperHero);
+                }
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult<SuperHero> Delete(int id)
+        {
+            repo.DeleteSuperHero(id);
+            return Ok();
+        }
     }
 }

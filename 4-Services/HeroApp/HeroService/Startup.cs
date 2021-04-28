@@ -33,7 +33,7 @@ namespace HeroService
 
             services.AddControllers();
             services.AddDbContext<SuperHeroContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SuperHeroDb"))
+                options.UseSqlServer("DESKTOP-9N59O8O\\SQLEXPRESS")
             );
             services.AddScoped<ISuperHeroRepository, SuperHeroRepository>();
             services.AddScoped<ISuperPowerRepository, SuperPowerRepository>();
