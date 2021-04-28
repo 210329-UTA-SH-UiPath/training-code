@@ -62,5 +62,22 @@ namespace MVCFrontEnd
             var result=response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
         }
+        
+         public async void DeleteSuperHero(int id)
+         {
+             using var client = new HttpClient();
+             var response = await client.DeleteAsync(url + id);
+         }
+
+         public async void UpdateSuperHero(SuperHero superHero)
+         {
+             var json = JsonConvert.SerializeObject(superHero);
+             var data = new StringContent(json, Encoding.UTF8, "application/json");
+             using var client = new HttpClient();
+             var response = await client.PutAsync(url + superHero.Id, data);
+             var result = response.Content.ReadAsStringAsync().Result;
+             Console.WriteLine(result);
+         }
+     }
     }
 }
