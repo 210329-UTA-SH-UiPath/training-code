@@ -9,7 +9,7 @@
 <h1>All Super Heroes</h1>
 <partial name="_TimePartial" />
 <p>
-    <a asp-action="Create">Create New Super Hero</a>
+    <a asp-action="Add">Create New Super Hero</a>
 </p>
 <table class="table">
     <thead>
@@ -40,9 +40,9 @@
                     @Html.DisplayFor(modelItem => item.HideOut)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new {id=item.Id }) |
+                    @Html.ActionLink("Details", "GetById", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
                 </td>
             </tr>
         }
