@@ -1,0 +1,1 @@
+- Register and Download UiPath Studio: https://www.uipath.com/landing/academic-studio-download
