@@ -189,8 +189,8 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 - Documentation is an important practise in SOA.
 
 ## How can you consume an Asp.Net Core Web API
-1. Client-side -> using JS or any frameworks based on client-scripting language. For JS -> XMLHttpRequest or fetch api
-2. Server-side -> for C# -> HttpClient
+1. [Client-side](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) -> using JS or any frameworks based on client-scripting language. For JS -> [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started) or [Fetch api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+2. Server-side -> for C# -> [HttpClient](https://zetcode.com/csharp/httpclient/)
 
 ## references 
 - [Practise](https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/)
