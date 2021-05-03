@@ -85,36 +85,34 @@ namespace HeroService.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int id)
+        public ActionResult<SuperHero> Put(SuperHero superHero)
         {
-            if (repo.GetSuperHeroById(id) == null)
+            try
             {
-                return BadRequest("SuperHero cannot be deleted because it does not exist.");
+                return Ok(repo.UpdateSuperHero(superHero));
             }
-            else
+            catch (Exception ex)
             {
-                repo.DeleteSuperHero(id);
-                return NoContent();
+                return StatusCode(400, ex.Message);
             }
         }
 
-
-        [HttpPut]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Put(SuperHero superHero)
+        public ActionResult Delete(int id)
         {
-            if (repo.GetSuperHeroById(superHero.Id) == null)
+            try
             {
-                return BadRequest("SuperHero cannot be updated because it does not exist.");
+                repo.DeleteSuperHero(id);
+                return Ok();
             }
-            else
+            catch (Exception ex)
             {
-                repo.UpdateSuperHero(superHero);
-                return NoContent();
+                return StatusCode(400, ex.Message);
             }
         }
 

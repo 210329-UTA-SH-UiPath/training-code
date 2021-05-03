@@ -10,6 +10,10 @@ namespace HeroData.Mappers
     {
         public HeroDomain.Models.SuperHero Map(Entities.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new HeroDomain.Models.SuperHero()
             {
                 Id = superHero.Id,
@@ -21,6 +25,10 @@ namespace HeroData.Mappers
 
         public Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new Entities.SuperHero()
             {
                 Id = superHero.Id,
@@ -32,6 +40,10 @@ namespace HeroData.Mappers
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
+            if (superPower == null)
+            {
+                return null;
+            }
             return new HeroDomain.Models.SuperPower()
             {
                 Id = superPower.Id,
@@ -43,6 +55,10 @@ namespace HeroData.Mappers
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
+            if (superPower == null)
+            {
+                return null;
+            }
             return new Entities.SuperPower()
             {
                 Id = superPower.Id,
