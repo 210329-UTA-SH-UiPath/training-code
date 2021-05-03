@@ -11,7 +11,7 @@ namespace MVCFrontEnd
 {
     public class Client
     {
-        string url = "https://localhost:44315/api/superHeroDb/";
+        string url = "https://localhost:44315/api/superheroDb/";
         public IEnumerable<SuperHero> GetAllSuperHeroes()
         {
             using var client =new HttpClient();
