@@ -139,7 +139,7 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
 - [Resolving Ambigious links](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#resolving-ambiguous-actions)
 
 
-### [Content Negiotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): 
+### [Content Negotiation](https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-3.1): 
 - **Content Negotiation** - Content negotiation occurs when the client specifies an Accept header. The default format used by ASP.NET Core is JSON.
 - To create custom formatter - create a class (MyFormatter) which inhertis from TextOutputFormatter
 - By Default Asp.Net core offers Json data unless configured.
@@ -152,7 +152,7 @@ In Microsoft.AspNetCore.Mvc provides following attributes:
     );
   ```
 ## Security in Asp.Net Core Web API
-### CORS
+### [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0)
 - Cross Origin Requests
 - Mordern browsers only allow same origin requests for security purpose
 - Same Origin 
