@@ -122,3 +122,24 @@
     - perform client side validations using annotations like StringLength/Range,RegularExpression, Required
     - Display Views : Datatype, Display Name
     - Mention schema logic: Key, Foreign Key, DataType
+
+
+## HTML
+- Attributes - the properties of html elements which defines behavior of an element
+    - Global: `id, name, class, style`
+    - Local: `<script>/<link> -> href, src | <img> - src` 
+- Elements
+    - Block: `<p>, <h1>, <li>, <div>`
+    - Inline: `<em>, <i>, <span>, <a>`
+
+
+## JavaScript
+- Functions - they represent the behavior of the program.
+    - Named Functions
+    - Anonymous Functions
+    - Arrow Functions
+    - Callback Functions
+    - Function Expressions
+    - IIFE
+- Closures
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
