@@ -30,7 +30,7 @@ namespace HeroService.Controllers
         //public ActionResult<SuperHero> Get(int id)
         public SuperHero Get(int id)
         {
-            var superHero = superHeroes.Find(x => x.id == id);
+            var superHero=superHeroes.Find(x => x.id == id);
             if (superHero == null)
                 //return NotFound($"The super hero with id {id} is not in the database");
                 return superHero;
@@ -61,18 +61,6 @@ namespace HeroService.Controllers
             else
                 return BadRequest("May be check your supper hero data, either it is null or invalid");
 
-        }
-
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int id)
-        {
-            if (superHeros.GetSuperHeroById(id) == null)
-            {
-
-            }
-            return NoContent();
         }
     }
 }
