@@ -141,9 +141,14 @@
     - Callback Functions
     - Function Expressions
     - IIFE
+    
 - Closures
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
 
 - **Server Side Calls using JS**
     - XMLHttpRequest - https://pokeapi.co/
     - Fetch API - https://digimon-api.vercel.app/
+
+- ## How can you consume an Asp.Net Core Web API
+1. [Client-side](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) -> using JS or any frameworks based on client-scripting language. For JS -> [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started) or [Fetch api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+2. Server-side -> for C# -> [HttpClient](https://zetcode.com/csharp/httpclient/)
