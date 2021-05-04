@@ -31,9 +31,11 @@ namespace HeroService
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors();
+
             services.AddControllers();
             services.AddDbContext<SuperHeroContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SuperHeroDb"))
+                options.UseSqlServer("Server=tcp:heroesapp.database.windows.net,1433;Initial Catalog=SuperHerosDb;Persist Security Info=False;User ID=dev;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False")
             );
             services.AddScoped<ISuperHeroRepository, SuperHeroRepository>();
             services.AddScoped<ISuperPowerRepository, SuperPowerRepository>();
@@ -58,6 +60,12 @@ namespace HeroService
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)); // allow any origin
+
 
             app.UseEndpoints(endpoints =>
             {
