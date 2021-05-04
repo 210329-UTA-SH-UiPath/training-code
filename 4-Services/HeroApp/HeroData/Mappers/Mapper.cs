@@ -10,6 +10,10 @@ namespace HeroData.Mappers
     {
         public HeroDomain.Models.SuperHero Map(Entities.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new HeroDomain.Models.SuperHero()
             {
                 Id = superHero.Id,
@@ -21,25 +25,47 @@ namespace HeroData.Mappers
 
         public Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new Entities.SuperHero()
             {
                 Id = superHero.Id,
-                Alias = superHero.Alias,
+                RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
-                RealName = superHero.RealName
+                Alias = superHero.Alias
             };
         }
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            if (superPower == null)
+            {
+                return null;
+            }
+            return new HeroDomain.Models.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId
+            };
         }
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
-            //please implemenet and make a PR for the same
-            throw new NotImplementedException();
+            if (superPower == null)
+            {
+                return null;
+            }
+            return new Entities.SuperPower()
+            {
+                Id = superPower.Id,
+                Name = superPower.Name,
+                Description = superPower.Description,
+                OwnerId = superPower.OwnerId
+            };
         }
     }
 }
