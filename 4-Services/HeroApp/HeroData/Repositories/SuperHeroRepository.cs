@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HeroDomain.Abstraction;
 using HeroDomain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HeroData.Repositories
 {
@@ -18,28 +19,44 @@ namespace HeroData.Repositories
         }
         public void AddSuperHero(SuperHero superHero)
         {
-            context.SuperHeroes.Add(mapper.Map(superHero));
-            context.SaveChanges();
+            if (superHero != null)
+            {
+                context.Add(mapper.Map(superHero));
+                context.SaveChanges();
+            }
         }
 
         public void DeleteSuperHero(int id)
         {
-            var hero = context.SuperHeroes.FirstOrDefault(hero => hero.Id == id);
-            context.SuperHeroes.Remove(hero);
-            context.SaveChanges();
+            var superHero = GetSuperHeroById(id);
+            if (superHero != null)
+            {
+                context.Remove(superHero);
+                context.SaveChanges();
+            }
         }
 
         public SuperHero GetSuperHeroById(int id)
         {
-            var hero = context.SuperHeroes.Where(hero => hero.id == id).FirstOrDefault();
-            return mapper.Map(hero);
+            var superHero = context.SuperHeroes.Where(x => x.Id == id).Include(superHero => superHero.SuperPower)
+                .FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
-        public SuperHero GetSuperHeroByName(string name)
+        public SuperHero GetSuperHeroByAlias(string name)
         {
-            var hero = context.SuperHeroes.Where(hero => hero.RealName == name).FirstOrDefault();
-            if (hero is not null)
-                return mapper.Map(hero);
+            var superHero = context.SuperHeroes.Where(x => x.Alias == name).FirstOrDefault();
+            if (superHero != null)
+            {
+                return mapper.Map(superHero);
+            }
+            else
+                return null;
         }
 
         public IEnumerable<SuperHero> GetSuperHeroes()
@@ -50,16 +67,18 @@ namespace HeroData.Repositories
 
         public SuperHero UpdateSuperHero(SuperHero superHero)
         {
-            var superHeroChanges = context.SuperHeroes.Where(x => x.Id == superHero.Id).FirstOrDefault();
-            if (superHero != null)
+            var updateThisSuperHero = GetSuperHeroById(superHero.Id);
+            if (updateThisSuperHero != null)
             {
-                superHero.Alias = superHeroChanges.Alias;
-                superHero.HideOut = superHeroChanges.HideOut;
-                context.Update(superHero);
+                updateThisSuperHero.RealName = superHero.RealName;
+                updateThisSuperHero.Id = superHero.Id;
+                updateThisSuperHero.Alias = superHero.Alias;
+                updateThisSuperHero.HideOut = superHero.HideOut;
+                updateThisSuperHero.SuperPower = superHero.SuperPower;
                 context.SaveChanges();
-                return superHero;
+                return updateThisSuperHero;
             }
-            return mapper.Map(superHeroChanges);
+            return null;
         }
     }
 }

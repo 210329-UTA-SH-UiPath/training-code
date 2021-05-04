@@ -11,7 +11,7 @@ namespace HeroDomain.Abstraction
     {
         IEnumerable<SuperHero> GetSuperHeroes();
         SuperHero GetSuperHeroById(int id);
-        SuperHero GetSuperHeroByName(string name);
+        SuperHero GetSuperHeroByAlias(string name);
         void AddSuperHero(SuperHero superHero);
         SuperHero UpdateSuperHero(SuperHero superHero);
         void DeleteSuperHero(int id);

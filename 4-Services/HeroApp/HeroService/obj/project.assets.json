@@ -9225,19 +9225,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PushpinderKaur\\.nuget\\packages\\": {}
+    "C:\\Users\\seanl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
+      "projectUniqueName": "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
       "projectName": "HeroService",
-      "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
-      "packagesPath": "C:\\Users\\PushpinderKaur\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroService\\obj\\",
+      "projectPath": "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroService\\HeroService.csproj",
+      "packagesPath": "C:\\Users\\seanl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PushpinderKaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\seanl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9251,11 +9251,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
-              "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj"
+            "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj": {
+              "projectPath": "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroData\\HeroData.csproj"
             },
-            "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
-              "projectPath": "C:\\Revature\\210329-uta-uipath\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
+            "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj": {
+              "projectPath": "C:\\Users\\seanl\\RevWeek6\\training-code\\4-Services\\HeroApp\\HeroDomain\\HeroDomain.csproj"
             }
           }
         }

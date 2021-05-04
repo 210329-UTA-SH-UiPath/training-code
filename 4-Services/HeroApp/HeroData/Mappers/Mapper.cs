@@ -10,9 +10,13 @@ namespace HeroData.Mappers
     {
         public HeroDomain.Models.SuperHero Map(Entities.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new HeroDomain.Models.SuperHero()
             {
-                Id = superHero.Id
+                Id = superHero.Id,
                 RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
                 Alias = superHero.Alias
@@ -21,35 +25,47 @@ namespace HeroData.Mappers
 
         public Entities.SuperHero Map(HeroDomain.Models.SuperHero superHero)
         {
+            if (superHero == null)
+            {
+                return null;
+            }
             return new Entities.SuperHero()
             {
                 Id = superHero.Id,
-                Alias = superHero.Alias,
+                RealName = superHero.RealName,
                 HideOut = superHero.HideOut,
-                RealName = superHero.RealName
+                Alias = superHero.Alias
             };
         }
 
         public HeroDomain.Models.SuperPower Map(Entities.SuperPower superPower)
         {
+            if (superPower == null)
+            {
+                return null;
+            }
             return new HeroDomain.Models.SuperPower()
             {
                 Id = superPower.Id,
                 Name = superPower.Name,
                 Description = superPower.Description,
-                OwnerId = superPower.OwnerId;
-            }
+                OwnerId = superPower.OwnerId
+            };
         }
 
         public Entities.SuperPower Map(HeroDomain.Models.SuperPower superPower)
         {
-            return new HeroDomain.Models.SuperPower()
+            if (superPower == null)
+            {
+                return null;
+            }
+            return new Entities.SuperPower()
             {
                 Id = superPower.Id,
                 Name = superPower.Name,
                 Description = superPower.Description,
-                OwnerId = superPower.OwnerId;
-            }
+                OwnerId = superPower.OwnerId
+            };
         }
     }
 }

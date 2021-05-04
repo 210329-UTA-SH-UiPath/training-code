@@ -3,48 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PowerDomain.Abstraction;
-using PowerDomain.Models;
+using HeroDomain.Abstraction;
+using HeroDomain.Models;
 
-namespace PowerData.Repositories
+namespace HeroData.Repositories
 {
     public class SuperPowerRepository : ISuperPowerRepository
     {
-        private readonly Entities.SuperPowerContext context;
+        private readonly Entities.SuperHeroContext context;
         Mappers.IMapper mapper = new Mappers.Mapper();
-        public SuperPowerRepository(Entities.SuperPowerContext context)
+        public SuperPowerRepository(Entities.SuperHeroContext context)
         {
             this.context = context;
-        }
-        public void AddSuperPower(SuperPower superPower)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteSuperPower(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public SuperPower GetSuperPowerById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public SuperPower GetSuperPowerByName()
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<SuperPower> GetSuperPowers()
         {
-            var superPowers = context.SuperPowers.Select(mapper.Map);
+            var superPowers = context.SuperPowers.Select(mapper.Map).ToList();
             return superPowers;
         }
-
+        public SuperPower GetSuperPowerById(int id)
+        {
+            var SuperPower = context.SuperPowers.Where(x => x.Id == id).FirstOrDefault();
+            if (SuperPower == null)
+            {
+                return null;
+            }
+            return mapper.Map(SuperPower);
+        }
+        public SuperPower GetSuperPowerByName(string name)
+        {
+            var SuperPower = context.SuperPowers.Where(x => x.Name == name).FirstOrDefault();
+            if (SuperPower == null)
+            {
+                return null;
+            }
+            return mapper.Map(SuperPower);
+        }
+        public void AddSuperPower(SuperPower superPower)
+        {
+            context.Add(mapper.Map(superPower));
+            context.SaveChanges();
+        }
         public SuperPower UpdateSuperPower(SuperPower superPower)
         {
-            throw new NotImplementedException();
+            var record = context.SuperPowers.FirstOrDefault(x => x.Id == superPower.Id);
+            record.Name = superPower.Name;
+            record.Description = superPower.Description;
+            record.OwnerId = superPower.OwnerId;
+            context.Update(record);
+            context.SaveChanges();
+            return mapper.Map(record);
+        }
+        public void DeleteSuperPower(int id)
+        {
+            var superPower = context.SuperPowers.FirstOrDefault(x => x.Id == id);
+            if (superPower != null)
+            {
+                context.Remove(superPower);
+            }
+            context.SaveChanges();
         }
     }
 }
