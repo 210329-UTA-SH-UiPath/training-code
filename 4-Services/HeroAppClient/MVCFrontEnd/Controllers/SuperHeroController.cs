@@ -13,7 +13,6 @@ namespace MVCFrontEnd.Controllers
         public IActionResult Index()
         {
             var superHeros=client.GetAllSuperHeroes();
-        
             return View(superHeros);
         }
         public ContentResult About()
