@@ -1,5 +1,6 @@
 ﻿using HeroDomain.Abstraction;
 using HeroDomain.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,7 @@ namespace HeroService.Controllers
             this.repo = repo;
         }
         [HttpGet]
+        [EnableCors("_frontEndAccessPolicy")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<SuperHero> Get()
