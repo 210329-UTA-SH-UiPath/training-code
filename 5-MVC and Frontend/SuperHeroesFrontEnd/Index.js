@@ -6,20 +6,20 @@ function GetAllHeroes() {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             superheroes = JSON.parse(xhr.responseText);
-            document.querySelectorAll('#heroes tbody tr').forEach(element => element.remove());
+            document.querySelectorAll('#heroes tbody tr').forEach(element=>element.remove());
             let heroTBody = document.querySelector('#heroes tbody');
             superheroes.forEach(function (obj) {
                 console.log(obj.Id);
                 let newRow = heroTBody.insertRow();
 
                 let newCell = newRow.insertCell();
-                newCell.innerHTML = obj.realName
+                newCell.innerHTML=obj.realName
 
                 let newCell1 = newRow.insertCell();
-                newCell1.innerHTML = obj.alias;
+                newCell1.innerHTML=obj.alias;
 
                 let newCell2 = newRow.insertCell();
-                newCell2.innerHTML = obj.hideOut;
+                newCell2.innerHTML=obj.hideOut;
             });
         }
     };
@@ -42,11 +42,11 @@ function AddAHero() {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status > 199 && xhr.status < 300) {
+        if (xhr.readyState === 4 && xhr.status >199 && xhr.status<300) {
             alert('New Hero Added');
-            realNameInput.value = '';
-            aliasInput.value = '';
-            hideOutInput = '';
+            realNameInput.value='';
+            aliasInput.value='';
+            hideOutInput='';
             GetAllHeroes();
         }
     };
