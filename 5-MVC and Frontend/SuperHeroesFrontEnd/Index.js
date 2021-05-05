@@ -1,38 +1,57 @@
-function GetAllHeroes(){
+function GetAllHeroes() {
+    let superheroes = {};
 
-    var table = document.querySelector('#heroes');
+    let xhr = new XMLHttpRequest();
 
-    fetch('https://localhost:44315/api/superheroDb/')
-        .then(response => response.json())
-        .then(result => {
-            for (let i = 0; i < result.length; i += 1) {
-                let row = table.insertRow();
-                row.insertRow().appendChild(document.createTextNode(result[x].RealName));
-                row.insertRow().appendChild(document.createTextNode(result[x].Alias));
-                row.insertRow().appendChild(document.createTextNode(result[x].HideOut));
-            }
-        });
-    
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            superheroes = JSON.parse(xhr.responseText);
+            document.querySelectorAll('#heroes tbody tr').forEach(element=>element.remove());
+            let heroTBody = document.querySelector('#heroes tbody');
+            superheroes.forEach(function (obj) {
+                console.log(obj.Id);
+                let newRow = heroTBody.insertRow();
+
+                let newCell = newRow.insertCell();
+                newCell.innerHTML=obj.realName
+
+                let newCell1 = newRow.insertCell();
+                newCell1.innerHTML=obj.alias;
+
+                let newCell2 = newRow.insertCell();
+                newCell2.innerHTML=obj.hideOut;
+            });
+        }
+    };
+
+    xhr.open('GET', 'https://localhost:44315/api/superherodb', true);
+
+    xhr.send();
+
 }
 
 function AddAHero() {
-    let name = document.querySelector('#realName').value;
-    let alias = document.querySelector('#alias').value;
-    let hideout = document.querySelector('#hideout').value;
-    let hero = { RealName: name, Alias: alias, HideOut: hideout };
+    let realNameInput = document.querySelector('#realName').value;
+    let aliasInput = document.querySelector('#alias').value;
+    let hideOutInput = document.querySelector('#hideOut').value;
 
-    fetch('https://localhost:44315/api/superheroDb/', {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(hero),
-    })
-        .then(response => response.json())
-        .then(hero => {
-            console.log('Success:', hero);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", 'https://localhost:44315/api/superherodb', true);
+
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status >199 && xhr.status<300) {
+            alert('New Hero Added');
+            realNameInput.value='';
+            aliasInput.value='';
+            hideOutInput='';
+            GetAllHeroes();
+        }
+    };
+
+    var data = JSON.stringify({ "realName": realNameInput, "alias": aliasInput, "hideOut": hideOutInput });
+
+    xhr.send(data);
 }

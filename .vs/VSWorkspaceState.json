@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\5-MVC and Frontend",
+    "\\5-MVC and Frontend\\SuperHeroesFrontEnd"
   ],
-  "SelectedNode": "\\HeroAppClient.sln",
+  "SelectedNode": "\\5-MVC and Frontend\\SuperHeroesFrontEnd\\Index.js",
   "PreviewInSolutionExplorer": false
 }
