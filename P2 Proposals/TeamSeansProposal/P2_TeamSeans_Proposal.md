@@ -23,7 +23,7 @@ We think it’s important to speed up the mundane, and automating the branch upd
 
 ## Flow Chart
 
-![Credentials Setup Flow Chart Diagram](https://github.com/sspring963/training-code/tree/main/P2%20Proposals/TeamSeansProposal/ProposalSetup.png)
+![Credentials Setup Flow Chart Diagram](flowchart.jpg)
 
 
 
