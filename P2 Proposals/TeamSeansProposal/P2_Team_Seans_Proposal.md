@@ -23,4 +23,4 @@ Searching for the right electronic, be it a new phone or computer, can be a daun
 
 ## Flow Chart
 
-![Credentials Setup Flow Chart Diagram](FlowChart.jpg)
+![Flow Chart Diagram](flowchart.jpg)
